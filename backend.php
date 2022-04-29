@@ -18,4 +18,13 @@ $query = "SELECT * FROM VISIT WHERE 'true'";
 echo "<br>Based on the user input, I created the following query: <br>".$query."<br><br>";
 $result = $conn->query($query);
 
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo "CRUISENUM: " . $row["CRUISENUM"]. " - COUNTRY: " . $row["COUNTRY"]. " PORTNAME: " . $row["PORTNAME"]. "<br>";
+    }
+  } else {
+    echo "0 results";
+  }
+  $conn->close();
 ?>
