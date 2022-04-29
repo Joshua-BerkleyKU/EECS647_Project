@@ -4,9 +4,10 @@
 $servername = "mysql.eecs.ku.edu";
 $username = "j708b537";
 $password = "Lais4suf";
+$dbname = "j708b537";
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password);
+$conn = mysqli_connect($servername, $username, $password,$dbname);
 
 // Check connection
 if (!$conn) {
@@ -16,7 +17,7 @@ if (!$conn) {
 
 $query = "SELECT * FROM VISIT WHERE COUNTRY = 'United States'";
 echo "<br>Based on the user input, I created the following query: <br>".$query."<br><br>";
-$result = $conn->query($query);
+$result = mysqli_query($conn,$query);
 
 if ($result->num_rows > 0) {
     // output data of each row
@@ -25,6 +26,6 @@ if ($result->num_rows > 0) {
     }
   } else {
     echo "0 results";
-  }
-  $conn->close();
+}
+mysqli_close($conn);
 ?>
