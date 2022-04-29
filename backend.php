@@ -14,7 +14,7 @@ if (!$conn) {
 }
 // echo "Connected successfully";
 
-$query = "SELECT * FROM VISIT WHERE 'true'";
+$query = "SELECT * FROM VISIT WHERE COUNTRY = 'United States'";
 echo "<br>Based on the user input, I created the following query: <br>".$query."<br><br>";
 $result = $conn->query($query);
 
