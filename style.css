@@ -1,0 +1,16 @@
+.search { 
+    background-color: red;
+    width: 20%;
+}
+
+.background
+{
+    background-image: url("warzone.jpg");
+    width: auto;
+    height: auto;
+    background-size: cover;
+}
+
+.temp {
+    background-color: red;
+}

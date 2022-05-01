@@ -3,14 +3,57 @@
 	<head>
 		<meta charset='utf-8' />
 		<title>647 project</title>
+		<link rel='stylesheet' type='text/css' href='style.css' />
 	</head>
-	<body>
+	<body class="background">
 		<form action='backend.php' method='post'>
-            <br> 
+            <fieldset class="search"> 
                 <p>enter username</p>
-                <input type="text" class="Search"> 
-                <input type='submit' class='buttonn'/>
-            </br>
+                <input type="text"> 
+                <input type='submit' class='button'/>
+            </fieldset>
+			<fieldset class="temp"> 
+				<div>
+					<p>add to the database</p>
+					enter username
+                	<input type="text">
+				</div> <br>
+				<div>
+					enter season
+                	<input type="text">
+					<fieldset class="temp">
+						<p>enter season statistics</p>
+						enter wins
+                		<input type="text">
+						enter losses
+                		<input type="text">
+						enter kills
+                		<input type="text">
+						enter deaths
+                		<input type="text">
+						enter headshots
+                		<input type="text">
+					</fieldset>
+				</div> <br>
+				<div>
+					enter weapon
+                	<input type="text">
+					<fieldset class="temp">
+						<p>enter weapon statistics</p>
+						enter kills
+                		<input type="text">
+						enter deaths
+                		<input type="text">
+						enter headshots
+                		<input type="text">
+						enter headshots accuracy (in %)
+                		<input type="text">
+					</fieldset>
+				</div>
+				<dr>
+					<input type='submit' class='button'/>
+				</dr>
+            </fieldset>
 		</form>
 	</body>
 </html>
