@@ -54,6 +54,9 @@ else
 
   $userinputquery = "INSERT INTO Users(UserID, Wins, Losses, Matches, Kills, Deaths, Headshots)
   VALUES($username, $userwins, $userlosses, $usermatches, $userkills, $userdeaths, $userheadshots)";
+
+  echo "<br>Based on the user input, I created the following query: <br>".$userinputquery."<br><br>";
+
   $resultuser = mysqli_query($conn,$userinputquery);
 
   if ($resultuser->num_rows > 0) {
