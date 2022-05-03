@@ -2,7 +2,7 @@
 
 
 $servername = "mysql.eecs.ku.edu";
-$username = "j708b537";
+$databaseusername = "j708b537";
 $password = "Lais4suf";
 $dbname = "j708b537";
 
@@ -34,7 +34,7 @@ $weaponacc = $_POST["weaponacc"];
 
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password,$dbname);
+$conn = mysqli_connect($servername, $databaseusername, $password,$dbname);
 
 // Check connection
 if (!$conn) {
