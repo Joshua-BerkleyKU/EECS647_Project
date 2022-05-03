@@ -53,7 +53,7 @@ else
   //if so then we need to change this to and update 
 
   $userinputquery = "INSERT INTO Users(UserID, Wins, Losses, Matches, Kills, Deaths, Headshots)
-  VALUES($username, $userwins, $userlosses, $usermatches, $userkills, $userdeaths, $userheadshots)";
+  VALUES('$username', '$userwins', '$userlosses', '$usermatches', '$userkills', '$userdeaths', '$userheadshots')";
 
   echo "<br>Based on the user input, I created the following query: <br>".$userinputquery."<br><br>";
 
