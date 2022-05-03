@@ -6,6 +6,34 @@ $username = "j708b537";
 $password = "Lais4suf";
 $dbname = "j708b537";
 
+//get user info
+$username = $_POST["username"];
+$userwins = $_POST["userwins"];
+$userlosses = $_POST["userlosses"];
+$usermatches = $_POST["usermatches"];
+$userkills = $_POST["userkills"];
+$userdeaths = $_POST["userdeaths"];
+$userheadshots = $_POST["userheadshots"];
+
+//get season info
+$seasonnum = $_POST["seasonnum"];
+$seasonwins = $_POST["seasonwins"];
+$seasonlosses = $_POST["seasonlosses"];
+$seasonmatches = $_POST["seasonmatches"];
+$seasonkills = $_POST["seasonkills"];
+$seasondeaths = $_POST["seasondeaths"];
+$seasonheadshots = $_POST["seasonheadshots"];
+$seasonid = $username + $seasonnum;
+
+//get weapon info
+$weaponname = $_POST["weaponname"];
+$weaponkills = $_POST["weaponkills"];
+$weapondeaths = $_POST["weapondeaths"];
+$weaponheadshots = $_POST["weaponheadshots"];
+$weaponacc = $_POST["weaponacc"];
+
+echo "<div> $username </div>";
+
 // Create connection
 $conn = mysqli_connect($servername, $username, $password,$dbname);
 
