@@ -1,10 +1,9 @@
 <?php
 
-
 $servername = "mysql.eecs.ku.edu";
-$username = "j708b537";
-$password = "Lais4suf";
-$dbname = "j708b537";
+$username = "s096c429";
+$password = "aePh3aid";
+$dbname = "s096c429";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password,$dbname);
