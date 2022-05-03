@@ -34,6 +34,10 @@ $weaponacc = $_POST["weaponacc"];
 
 echo "<div> $username </div>";
 echo "<div> this is what $weaponname is </div>";
+if ($weaponname == "" )
+{
+  echo "<div> yes </div>";
+}
 
 // Create connection
 $conn = mysqli_connect($servername, $databaseusername, $password,$dbname);
