@@ -32,6 +32,11 @@ $weapondeaths = $_POST["weapondeaths"];
 $weaponheadshots = $_POST["weaponheadshots"];
 $weaponacc = $_POST["weaponacc"];
 
+echo "<div> $username </div>";
+if($weaponname = NULL)
+{
+  echo "<div> balls </div>";
+}
 
 // Create connection
 $conn = mysqli_connect($servername, $databaseusername, $password,$dbname);
