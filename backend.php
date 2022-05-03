@@ -6,6 +6,17 @@ $databaseusername = "j708b537";
 $password = "Lais4suf";
 $dbname = "j708b537";
 
+
+// Create connection
+$conn = mysqli_connect($servername, $databaseusername, $password,$dbname);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+// echo "Connected successfully";
+
+
 //get user info
 $username = $_POST["username"];
 $userwins = $_POST["userwins"];
@@ -32,21 +43,28 @@ $weapondeaths = $_POST["weapondeaths"];
 $weaponheadshots = $_POST["weaponheadshots"];
 $weaponacc = $_POST["weaponacc"];
 
-echo "<div> $username </div>";
-echo "<div> this is what $weaponname is </div>";
-if ($weaponname == "" )
+if ($username == "" )
 {
-  echo "<div> yes </div>";
+  echo "<div> error needs a username </div>";
 }
+else
+{
+  //need to look and see if there is a user with the same name in the database
+  //if so then we need to change this to and update 
 
-// Create connection
-$conn = mysqli_connect($servername, $databaseusername, $password,$dbname);
+  $userinputquery = "INSERT INTO Users(UserID, Wins, Losses, Matches, Kills, Deaths, Headshots)
+  VALUES($username, $userwins, $userlosses, $usermatches, $userkills, $userdeaths, $userheadshots)";
+  $resultuser = mysqli_query($conn,$userinputquery);
 
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
+  if ($resultuser->num_rows > 0) {
+    // output data of each row
+    while($row = $resultuser->fetch_assoc()) {
+      echo "UserID: " . $username["CRUISENUM"]. " - Wins: " . $userwins["COUNTRY"]. " Headshots: " . $userheadshots["PORTNAME"]. "<br>";
+    }
+  } else {
+    echo "0 results";
 }
-// echo "Connected successfully";
+}
 
 $query = "SELECT * FROM VISIT WHERE COUNTRY = 'United States'";
 echo "<br>Based on the user input, I created the following query: <br>".$query."<br><br>";
