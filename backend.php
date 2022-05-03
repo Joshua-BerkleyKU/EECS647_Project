@@ -32,14 +32,12 @@ $weapondeaths = $_POST["weapondeaths"];
 $weaponheadshots = $_POST["weaponheadshots"];
 $weaponacc = $_POST["weaponacc"];
 
-echo "<div> $username </div>";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password,$dbname);
 
 // Check connection
 if (!$conn) {
-  echo "<div> $username </div>";
   die("Connection failed: " . mysqli_connect_error());
 }
 // echo "Connected successfully";
