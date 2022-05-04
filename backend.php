@@ -49,24 +49,46 @@ if ($username == "" )
 }
 else
 {
-  //need to look and see if there is a user with the same name in the database
-  //if so then we need to change this to and update 
 
-  $userinputquery = "INSERT INTO Users(UserID, Wins, Losses, Matches, Kills, Deaths, Headshots)
-  VALUES('$username', '$userwins', '$userlosses', '$usermatches', '$userkills', '$userdeaths', '$userheadshots')";
+  $userfindquery = "SELECT * FROM Users WHERE UserID = '$username'";
 
-  echo "<br>Based on the user input, I created the following query: <br>".$userinputquery."<br><br>";
+  echo "<br>Based on the user input, I created the following query: <br>".$userfindquery."<br><br>";
 
-  $resultuser = mysqli_query($conn,$userinputquery);
+  $resultfinduser = mysqli_query($conn,$userfindquery);
 
-  if ($resultuser->num_rows > 0) {
-    // output data of each row
-    while($row = $resultuser->fetch_assoc()) {
-      echo "UserID: " . $username["CRUISENUM"]. " - Wins: " . $userwins["COUNTRY"]. " Headshots: " . $userheadshots["PORTNAME"]. "<br>";
+  if ($resultfinduser->num_rows > 0) {
+    $userupdate = "UPDATE Users SET Wins = '$userwins', Losses = $userlosses, Matches = '$usermatches', Kills = '$userkills', 
+    Deaths = '$userdeaths', Headshots = '$userheadshots' WHERE UserID = '$username'";
+
+    echo "<br>Based on the user input, I created the following query: <br>".$userupdate."<br><br>";
+
+    $resultuserupdate = mysqli_query($conn,$userupdate);
+
+    if ($resultfinduser->num_rows > 0)
+    {
+      echo "<div> it updated </div>";
+    }
+    else
+    {
+      echo "<div> it did not updated </div>";
     }
   } else {
-    echo "0 results";
-}
+    $userinputquery = "INSERT INTO Users(UserID, Wins, Losses, Matches, Kills, Deaths, Headshots)
+    VALUES('$username', '$userwins', '$userlosses', '$usermatches', '$userkills', '$userdeaths', '$userheadshots')";
+
+    echo "<br>Based on the user input, I created the following query: <br>".$userinputquery."<br><br>";
+
+    $resultuser = mysqli_query($conn,$userinputquery);
+
+    if ($resultfinduser->num_rows > 0)
+    {
+      echo "<div> it inserted </div>";
+    }
+    else
+    {
+      echo "<div> it did not inserted </div>";
+    }
+  }
 }
 
 $query = "SELECT * FROM VISIT WHERE COUNTRY = 'United States'";
