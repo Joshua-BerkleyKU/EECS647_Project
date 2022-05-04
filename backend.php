@@ -42,6 +42,7 @@ $weaponkills = $_POST["weaponkills"];
 $weapondeaths = $_POST["weapondeaths"];
 $weaponheadshots = $_POST["weaponheadshots"];
 $weaponacc = $_POST["weaponacc"];
+echo "<div> this is $weaponacc </div>";
 
 /*
 //user input
