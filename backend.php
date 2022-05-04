@@ -106,6 +106,8 @@ else
     $weaponupdate = "UPDATE Weapons SET Kills = '$weaponkills',Deaths = '$weapondeaths', Headshots = '$weaponheadshots', 
     HeadshotAccuracy = '$weaponacc' WHERE UserID = '$username' AND WeaponName = '$weaponname' ";
 
+    echo "<br>Based on the user input, I created the following query: <br>".$weaponupdate."<br><br>";
+
     $resultweaponupdate = mysqli_query($conn,$weaponupdate);
 
     if ($resultweaponupdate->num_rows > 0)
