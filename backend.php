@@ -98,6 +98,8 @@ else
 {
   $weaponfindquery = "SELECT * FROM Weapons WHERE UserID = '$username' AND WeaponName = '$weaponname' ";
 
+  echo "<br>Based on the user input, I created the following query: <br>".$weaponfindquery."<br><br>";
+
   $resultfindweapon = mysqli_query($conn,$weaponfindquery);
 
   if ($resultfindweapon->num_rows > 0) {
@@ -116,8 +118,10 @@ else
       echo "<div> it did not updated </div>";
     }
   } else {
-    $weaponinputquery = "INSERT INTO Weapons(UserID, WeaponName, Matches, Kills, Deaths, Headshots, HeadshotAccuracy)
+    $weaponinputquery = "INSERT INTO Weapons(UserID, WeaponName, Kills, Deaths, Headshots, HeadshotAccuracy)
     VALUES('$username', '$weaponname', '$weaponkills', '$weapondeaths', '$weaponheadshots', '$weaponacc')";
+
+    echo "<br>Based on the user input, I created the following query: <br>".$weaponinputquery."<br><br>";
 
     $resultweapon = mysqli_query($conn,$weaponinputquery);
 
