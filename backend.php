@@ -43,16 +43,15 @@ $weapondeaths = $_POST["weapondeaths"];
 $weaponheadshots = $_POST["weaponheadshots"];
 $weaponacc = $_POST["weaponacc"];
 
+/*
+//user input
 if ($username == "" )
 {
   echo "<div> error needs a username </div>";
 }
 else
 {
-
   $userfindquery = "SELECT * FROM Users WHERE UserID = '$username'";
-
-  echo "<br>Based on the user input, I created the following query: <br>".$userfindquery."<br><br>";
 
   $resultfinduser = mysqli_query($conn,$userfindquery);
 
@@ -60,12 +59,11 @@ else
     $userupdate = "UPDATE Users SET Wins = '$userwins', Losses = $userlosses, Matches = '$usermatches', Kills = '$userkills', 
     Deaths = '$userdeaths', Headshots = '$userheadshots' WHERE UserID = '$username'";
 
-    echo "<br>Based on the user input, I created the following query: <br>".$userupdate."<br><br>";
-
     $resultuserupdate = mysqli_query($conn,$userupdate);
 
     if ($resultfinduser->num_rows > 0)
     {
+      // needed better response 
       echo "<div> it updated </div>";
     }
     else
@@ -76,12 +74,56 @@ else
     $userinputquery = "INSERT INTO Users(UserID, Wins, Losses, Matches, Kills, Deaths, Headshots)
     VALUES('$username', '$userwins', '$userlosses', '$usermatches', '$userkills', '$userdeaths', '$userheadshots')";
 
-    echo "<br>Based on the user input, I created the following query: <br>".$userinputquery."<br><br>";
-
     $resultuser = mysqli_query($conn,$userinputquery);
 
     if ($resultfinduser->num_rows > 0)
     {
+      // needed better response
+      echo "<div> it inserted </div>";
+    }
+    else
+    {
+      echo "<div> it did not inserted </div>";
+    }
+  }
+}
+*/
+
+//weapon input
+if ($username == ""  && $weaponname == "")
+{
+  echo "<div> error needs a username and a weapon name</div>";
+}
+else
+{
+  $weaponfindquery = "SELECT * FROM Weapons WHERE UserID = '$username' AND WeaponName = '$weaponname' ";
+
+  $resultfindweapon = mysqli_query($conn,$weaponfindquery);
+
+  if ($resultfindweapon->num_rows > 0) {
+    $weaponupdate = "UPDATE Weapons SET Kills = '$weaponkills',Deaths = '$weapondeaths', Headshots = '$weaponheadshots', 
+    HeadshotAccuracy = '$weaponacc' WHERE UserID = '$username' AND WeaponName = '$weaponname' ";
+
+    $resultweaponupdate = mysqli_query($conn,$weaponupdate);
+
+    if ($resultweaponupdate->num_rows > 0)
+    {
+      // needed better response 
+      echo "<div> it updated </div>";
+    }
+    else
+    {
+      echo "<div> it did not updated </div>";
+    }
+  } else {
+    $weaponinputquery = "INSERT INTO Weapons(UserID, WeaponName, Matches, Kills, Deaths, Headshots, HeadshotAccuracy)
+    VALUES('$username', '$weaponname', '$weaponkills', '$weapondeaths', '$weaponheadshots', '$weaponacc')";
+
+    $resultweapon = mysqli_query($conn,$weaponinputquery);
+
+    if ($resultweapon->num_rows > 0)
+    {
+      // needed better response
       echo "<div> it inserted </div>";
     }
     else
