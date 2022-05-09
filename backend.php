@@ -37,7 +37,6 @@ $seasonheadshots = $_POST["seasonheadshots"];
 $seasonid = $username + $seasonnum;
 
 
-$weaponacc = $_POST["weaponaccuracy"];
 //get weapon info
 $weaponname = $_POST["weaponname"];
 $weaponkills = $_POST["weaponkills"];
@@ -46,9 +45,8 @@ $weaponheadshots = $_POST["weaponheadshots"];
 
 //for some ungodly reason we do not get the info from the headshots accuracy text box
 //I have no idea why it is not working
-//$weaponacc = $_POST["weaponaccuracy"];
+$weaponacc = $_POST["weaponaccuracy"];
 echo "<div> this is $weaponacc </div>";
-echo "<div> this is $weaponheadshots </div>";
 
 /*
 //user input
