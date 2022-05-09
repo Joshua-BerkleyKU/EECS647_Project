@@ -98,15 +98,11 @@ else
 {
   $weaponfindquery = "SELECT * FROM Weapons WHERE UserID = '$username' AND WeaponName = '$weaponname' ";
 
-  echo "<br>Based on the user input, I created the following query: <br>".$weaponfindquery."<br><br>";
-
   $resultfindweapon = mysqli_query($conn,$weaponfindquery);
 
   if ($resultfindweapon->num_rows > 0) {
     $weaponupdate = "UPDATE Weapons SET Kills = '$weaponkills',Deaths = '$weapondeaths', Headshots = '$weaponheadshots', 
     HeadshotAccuracy = '$weaponacc' WHERE UserID = '$username' AND WeaponName = '$weaponname' ";
-
-    echo "<br>Based on the user input, I created the following query: <br>".$weaponupdate."<br><br>";
 
     $resultweaponupdate = mysqli_query($conn,$weaponupdate);
 
@@ -123,8 +119,6 @@ else
     $weaponinputquery = "INSERT INTO Weapons(UserID, WeaponName, Kills, Deaths, Headshots, HeadshotAccuracy)
     VALUES('$username', '$weaponname', '$weaponkills', '$weapondeaths', '$weaponheadshots', '$weaponacc')";
 
-    echo "<br>Based on the user input, I created the following query: <br>".$weaponinputquery."<br><br>";
-
     $resultweapon = mysqli_query($conn,$weaponinputquery);
 
     if ($resultweapon->num_rows > 0)
@@ -139,6 +133,55 @@ else
   }
 }
 */
+
+//season input
+if ($username == "" && $seasonnum == "")
+{
+  echo "<div> error needs a username and season number</div>";
+}
+else
+{
+  $seasonfindquery = "SELECT * FROM SeasonsPlayed WHERE UserID = '$username' AND SeasonNum = '$seasonnum'";
+
+  $resultfindseason = mysqli_query($conn,$seasonfindquery);
+
+  if ($resultfindseason->num_rows > 0) {
+    $seasonpdate = "UPDATE Seasons SET Wins = '$seasonwins', Losses = $seasonlosses, Matches = '$seasonmatches', 
+    Kills = '$seasonkills', Deaths = '$seasondeaths', Headshots = '$seasonheadshots' WHERE UserID = '$seasonid'";
+
+    $resultseasonupdate = mysqli_query($conn,$seasonpdate);
+
+    if ($resultseasonupdate->num_rows > 0)
+    {
+      // needed better response 
+      echo "<div> it updated </div>";
+    }
+    else
+    {
+      echo "<div> it did not updated </div>";
+    }
+  } else {
+    $seasoninputquery = "INSERT INTO Seasons(SeasonID, Wins, Losses, Matches, Kills, Deaths, Headshots)
+    VALUES('$seasonid', '$seasonwins', '$seasonlosses', '$seasonmatches', '$seasonkills', '$seasondeaths', '$seasonheadshots')";
+
+    $resultseason = mysqli_query($conn,$seasoninputquery);
+
+    $seasonPlayedinput = "INSERT INTO SeasonsPlayed(UserID, SeasonNum, SeasonID) 
+    VALUES('$username', '$seasonnum', '$seasonid')";
+
+    $resultseasonPlay = mysqli_query($conn,$seasonPlayedinput);
+
+    if ($resultfindseason->num_rows > 0 && $resultseasonPlay->num_rows > 0)
+    {
+      // needed better response
+      echo "<div> it inserted </div>";
+    }
+    else
+    {
+      echo "<div> it did not inserted </div>";
+    }
+  }
+}
 
 
 $query = "SELECT * FROM VISIT WHERE COUNTRY = 'United States'";
