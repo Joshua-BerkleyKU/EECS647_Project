@@ -50,6 +50,10 @@ $button3 = isset($_POST['weaponbutton']);
 echo "<div> button user is $button1 </div>";
 echo "<div> button season is $button2 </div>";
 echo "<div> button weapon is $button3 </div>";
+if($button1 != 1)
+{
+  echo "<div> button user was not pressed </div>";
+}
 /*
 //user input
 if ($username == "" )
