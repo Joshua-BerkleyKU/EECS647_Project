@@ -133,7 +133,7 @@ else
   }
 }
 */
-
+/*
 //season input
 if ($username == "" && $seasonnum == "")
 {
@@ -182,7 +182,7 @@ else
     }
   }
 }
-
+*/
 
 $query = "SELECT * FROM VISIT WHERE COUNTRY = 'United States'";
 echo "<br>Based on the user input, I created the following query: <br>".$query."<br><br>";
