@@ -54,6 +54,10 @@ if($button1 != 1)
 {
   echo "<div> button user was not pressed </div>";
 }
+if($button1 == 1)
+{
+  echo "<div> button user was pressed </div>";
+}
 /*
 //user input
 if ($username == "" )
