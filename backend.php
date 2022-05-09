@@ -98,7 +98,7 @@ if($userbutton == 1)
 //weapon input
 if($weaponbutton == 1)
 {
-  if ($username == ""  && $weaponname == "")
+  if ($username == ""  || $weaponname == "")
   {
     echo "<div> error needs a username and a weapon name</div>";
   }
@@ -145,7 +145,7 @@ if($weaponbutton == 1)
 //season input
 if($seasonbutton == 1)
 {
-  if ($username == "" && $seasonnum == "")
+  if ($username == "" || $seasonnum == "")
   {
     echo "<div> error needs a username and season number</div>";
   }
