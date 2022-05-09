@@ -157,7 +157,7 @@ if($seasonbutton == 1)
 
     if ($resultfindseason->num_rows > 0) {
       $seasonpdate = "UPDATE Seasons SET Wins = '$seasonwins', Losses = $seasonlosses, Matches = '$seasonmatches', 
-      Kills = '$seasonkills', Deaths = '$seasondeaths', Headshots = '$seasonheadshots' WHERE UserID = '$seasonid'";
+      Kills = '$seasonkills', Deaths = '$seasondeaths', Headshots = '$seasonheadshots' WHERE SeasonID = '$seasonid'";
 
       $resultseasonupdate = mysqli_query($conn,$seasonpdate);
 
