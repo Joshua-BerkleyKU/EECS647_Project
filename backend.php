@@ -42,12 +42,7 @@ $weaponname = $_POST["weaponname"];
 $weaponkills = $_POST["weaponkills"];
 $weapondeaths = $_POST["weapondeaths"];
 $weaponheadshots = $_POST["weaponheadshots"];
-
-//for some ungodly reason we do not get the info from the headshots accuracy text box
-//I have no idea why it is not working
 $weaponacc = $_POST["weaponaccuracy"];
-echo "<div> this is $weaponacc </div>";
-
 /*
 //user input
 if ($username == "" )
@@ -144,6 +139,8 @@ else
   }
 }
 */
+
+
 $query = "SELECT * FROM VISIT WHERE COUNTRY = 'United States'";
 echo "<br>Based on the user input, I created the following query: <br>".$query."<br><br>";
 $result = mysqli_query($conn,$query);
