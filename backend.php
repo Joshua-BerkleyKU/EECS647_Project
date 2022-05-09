@@ -43,6 +43,13 @@ $weaponkills = $_POST["weaponkills"];
 $weapondeaths = $_POST["weapondeaths"];
 $weaponheadshots = $_POST["weaponheadshots"];
 $weaponacc = $_POST["weaponaccuracy"];
+
+$button1 = isset($_POST['userbutton']);
+$button2 = isset($_POST['seasonbutton']);
+$button3 = isset($_POST['weaponbutton']);
+echo "<div> button user is $button1 </div>";
+echo "<div> button season is $button2 </div>";
+echo "<div> button weapon is $button3 </div>";
 /*
 //user input
 if ($username == "" )
