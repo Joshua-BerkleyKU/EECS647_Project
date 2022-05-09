@@ -34,7 +34,7 @@ $seasonmatches = $_POST["seasonmatches"];
 $seasonkills = $_POST["seasonkills"];
 $seasondeaths = $_POST["seasondeaths"];
 $seasonheadshots = $_POST["seasonheadshots"];
-$seasonid = $username + $seasonnum;
+$seasonid = $username + strval($seasonnum);
 
 
 //get weapon info
