@@ -36,6 +36,8 @@ $seasondeaths = $_POST["seasondeaths"];
 $seasonheadshots = $_POST["seasonheadshots"];
 $seasonid = $username + $seasonnum;
 
+
+$weaponacc = $_POST["weaponaccuracy"];
 //get weapon info
 $weaponname = $_POST["weaponname"];
 $weaponkills = $_POST["weaponkills"];
@@ -46,6 +48,7 @@ $weaponheadshots = $_POST["weaponheadshots"];
 //I have no idea why it is not working
 $weaponacc = $_POST["weaponaccuracy"];
 echo "<div> this is $weaponacc </div>";
+echo "<div> this is $weaponheadshots </div>";
 
 /*
 //user input
@@ -92,7 +95,7 @@ else
   }
 }
 */
-
+/*
 //weapon input
 if ($username == ""  && $weaponname == "")
 {
@@ -142,7 +145,7 @@ else
     }
   }
 }
-
+*/
 $query = "SELECT * FROM VISIT WHERE COUNTRY = 'United States'";
 echo "<br>Based on the user input, I created the following query: <br>".$query."<br><br>";
 $result = mysqli_query($conn,$query);
