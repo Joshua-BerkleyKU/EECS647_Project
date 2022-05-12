@@ -1,12 +1,30 @@
 <?php
 
 $servername = "mysql.eecs.ku.edu";
-$username = "s096c429";
+$databaseusername = "s096c429";
 $password = "aePh3aid";
 $dbname = "s096c429";
 
+$page_to_load = $_GET['page'];
+
+switch($page_to_load) {
+
+case 'addData':
+//Logic to view or HTML for view
+break;
+
+case 'getData':
+//Logic to add or HTML for add
+break;
+
+default:
+die("Invalid page received: " + $page_to_load);
+break;
+
+}
+
 // Create connection
-$conn = mysqli_connect($servername, $username, $password,$dbname);
+$conn = mysqli_connect($servername, $databaseusername, $password,$dbname);
 
 // Check connection
 if (!$conn) {
