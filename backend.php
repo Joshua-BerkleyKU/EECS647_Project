@@ -9,7 +9,7 @@ $page_to_load = $_GET['page'];
 
 switch ($page_to_load) {
 
-  case 'addData':
+  case 'off':
     // Create connection
     $conn = mysqli_connect($servername, $databaseusername, $password, $dbname);
 
@@ -170,7 +170,7 @@ switch ($page_to_load) {
     mysqli_close($conn);
     break;
 
-  case 'getData':
+  case 'on':
     $username = $_GET["username"];
     $season = $_GET["season"];
     $weapon = $_GET["weapon"];
