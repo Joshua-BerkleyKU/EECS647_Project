@@ -9,13 +9,14 @@
 		<div id="viewDataPageBlock">
 			<a href="viewData.html">View Data</a>
 		</div>
-		<form action='backend.php?page=addData' method='post'>
+		<form action='backend.php' method='post'>
             <fieldset class="search"> 
                 <p>enter username</p>
                 <input type="text"> 
                 <input type='submit' class='button'/>
             </fieldset>
 			<fieldset class="temp"> 
+				<input type="checkbox" name="page" placeholder="addData">
 				<div>
 					<p>add to the database</p>
 					<p>select what section you want to add</p>

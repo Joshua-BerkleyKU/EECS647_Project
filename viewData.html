@@ -9,13 +9,14 @@
         <div id="viewDataPageBlock">
 			<a href="647_project.html">Go back</a>
 		</div>
-		<form action='backend.php?page=getData' method='get'>
+		<form action='backend.php' method='get'>
             <fieldset class="search"> 
                 <p>Enter username</p>
                 <input type="text" name="username"> 
                 <input type='submit' class='button'/>
             </fieldset>
 			<fieldset class="temp"> 
+                <input type="checkbox" name="page" placeholder="getData">
 				<div>
 					<p>Specify the data to view:</p>
 					<input type='text' name='season' placeholder="All"/> Season Statistics
