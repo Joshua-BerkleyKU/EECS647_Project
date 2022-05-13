@@ -167,19 +167,6 @@ switch ($page_to_load) {
       }
     }
 
-    // will need to remove this 
-    $query = "SELECT * FROM VISIT WHERE COUNTRY = 'United States'";
-    echo "<br>Based on the user input, I created the following query: <br>" . $query . "<br><br>";
-    $result = mysqli_query($conn, $query);
-
-    if ($result->num_rows > 0) {
-      // output data of each row
-      while ($row = $result->fetch_assoc()) {
-        echo "CRUISENUM: " . $row["CRUISENUM"] . " - COUNTRY: " . $row["COUNTRY"] . " PORTNAME: " . $row["PORTNAME"] . "<br>";
-      }
-    } else {
-      echo "0 results";
-    }
     mysqli_close($conn);
     break;
 
@@ -208,8 +195,93 @@ switch ($page_to_load) {
       die("Connection failed: " . mysqli_connect_error());
     }
 
+    if ($season == "All" && $weapon == "All") {
+      $query = "SELECT * FROM Users WHERE UserID='$username'";
+      $result = mysqli_query($conn, $query);
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+          echo "User: " . $row["UserID"]
+            . "\nWins: " . $row["Wins"]
+            . "\nLosses: " . $row["Losses"]
+            . "\nMatches" . $row["Matches"]
+            . "\nKills: " . $row["Kills"]
+            . "\nDeaths: " . $row["Deaths"]
+            . "\nHeadshots: " . $row["Headshots"]
+            . "<br>";
+        }
+      } else {
+        echo "
+        <head>
+          <meta charset='utf-8' />
+          <title>647 project | view user data</title><link rel='stylesheet' type='text/css' href='style.css' />
+        </head>
+        <body class='background'>
+          <div>Error: 0 results. Either this user has no data or the username was entered incorrectly.</div>
+          <div id='viewDataPageBlock'>
+            <a href='647_project.html'>Go back</a>
+          </div>
+        </body>";
+      }
+    } elseif ($weapon != "All") {
+      $query = "SELECT * FROM Weapons WHERE UserID='$username' AND WeaponName='$weapon'"; //UserID, WeaponName, Kills, Deaths, Headshots, HeadshotAccuracy
+      $result = mysqli_query($conn, $query);
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) { //UserID, Wins, Losses, Matches, Kills, Deaths, Headshots
+          echo "User: " . $row["UserID"]
+            . "\nWeapon: " . $row["WeaponName"]
+            . "\nKills: " . $row["Kills"]
+            . "\nDeaths: " . $row["Deaths"]
+            . "\nHeadshots: " . $row["Headshots"]
+            . "\nHeadshotAccuracy: " . $row["HeadshotAccuracy"]
+            . "<br>";
+        }
+      } else {
+        echo "
+      <head>
+        <meta charset='utf-8' />
+        <title>647 project | view user data</title><link rel='stylesheet' type='text/css' href='style.css' />
+      </head>
+      <body class='background'>
+        <div>Error: 0 results. Either this user has no data for this weapon or the username or weapon name was entered incorrectly.</div>
+        <div id='viewDataPageBlock'>
+          <a href='647_project.html'>Go back</a>
+        </div>
+      </body>";
+      }
+    } elseif ($season != "All") {
+      $query = "SELECT SeasonID, Wins, Losses, Matches, Kills, Deaths, Headshots FROM Seasons, SeasonsPlayed WHERE SeasonsPlayed.SeasonNum='$season' AND SeasonsPlayed.UserID='$username' AND SeasonsPlayed.SeasonID=Seasons.SeasonID";
+      $result = mysqli_query($conn, $query);
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) { //UserID, Wins, Losses, Matches, Kills, Deaths, Headshots
+          echo "Season: " . $row["SeasonID"]
+            . "\nWins: " . $row["Wins"]
+            . "\nLosses: " . $row["Losses"]
+            . "\nMatches" . $row["Matches"]
+            . "\nKills: " . $row["Kills"]
+            . "\nDeaths: " . $row["Deaths"]
+            . "\nHeadshots: " . $row["Headshots"]
+            . "<br>";
+        }
+      } else {
+        echo "
+      <head>
+        <meta charset='utf-8' />
+        <title>647 project | view user data</title><link rel='stylesheet' type='text/css' href='style.css' />
+      </head>
+      <body class='background'>
+        <div>Error: 0 results. Either this user has no data for this season or the username was entered incorrectly.</div>
+        <div id='viewDataPageBlock'>
+          <a href='647_project.html'>Go back</a>
+        </div>
+      </body>";
+      }
+    }
 
 
+    mysqli_close($conn);
     break;
 
   default:
