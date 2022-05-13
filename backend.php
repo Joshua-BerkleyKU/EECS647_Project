@@ -1,9 +1,9 @@
 <?php
 
 $servername = "mysql.eecs.ku.edu";
-$databaseusername = "s096c429";
-$password = "aePh3aid";
-$dbname = "s096c429";
+$databaseusername = "j708b537";
+$password = "Lais4suf";
+$dbname = "j708b537";
 
 $page_to_load = $_GET['page'];
 
