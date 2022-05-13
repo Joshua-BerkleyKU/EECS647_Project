@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset='utf-8' />
+		<title>647 project | view user data</title>
+		<link rel='stylesheet' type='text/css' href='style.css' />
+	</head>
+    <body class="background">
+        <div id="viewDataPageBlock">
+			<a href="647_project.html">Go back</a>
+		</div>
+		<form action='backend.php?page=getData' method='get'>
+            <fieldset class="search"> 
+                <p>Enter username</p>
+                <input type="text" name="username"> 
+                <input type='submit' class='button'/>
+            </fieldset>
+			<fieldset class="temp"> 
+				<div>
+					<p>Specify the data to view:</p>
+					<input type='text' name='season' placeholder="All"/> Season Statistics
+					<input type='text' name='weapon' placeholder="All"/> Weapon statistics <br>
+					<br>
+				</div> <br>
+				<dr>
+					<input type='submit' class='button'/>
+				</dr>
+            </fieldset>
+		</form>
+    </body>
+</html>

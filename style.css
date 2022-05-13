@@ -3,6 +3,14 @@
     width: 20%;
 }
 
+#viewDataPageBlock {
+    min-width: fit-content;
+    min-height: fit-content;
+    width: 50px;
+    height: 25px;
+    background-color: red;
+}
+
 .background
 {
     background-image: url("warzone.jpg");
