@@ -174,6 +174,12 @@ switch ($page_to_load) {
     $username = $_GET["username"];
     $season = $_GET["season"];
     $weapon = $_GET["weapon"];
+    if ($season == "") {
+      $season = "All";
+    }
+    if ($weapon == "") {
+      $weapon = "All";
+    }
     if ($username == "") {
       echo "
       <head>
