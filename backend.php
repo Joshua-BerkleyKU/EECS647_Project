@@ -207,14 +207,26 @@ switch ($page_to_load) {
       if ($result->num_rows > 0) {
         // output data of each row
         while ($row = $result->fetch_assoc()) {
-          echo "User: " . $row["UserID"]
+          echo "
+          <head>
+            <meta charset='utf-8' />
+            <title>647 project | view user data</title><link rel='stylesheet' type='text/css' href='style.css' />
+          </head>
+          <body class='background'>
+            <div>"
+            . "User: " . $row["UserID"]
             . "\nWins: " . $row["Wins"]
             . "\nLosses: " . $row["Losses"]
             . "\nMatches" . $row["Matches"]
             . "\nKills: " . $row["Kills"]
             . "\nDeaths: " . $row["Deaths"]
             . "\nHeadshots: " . $row["Headshots"]
-            . "<br>";
+            . "<br>"
+            . "</div>
+            <div id='viewDataPageBlock'>
+              <a href='647_project.html'>Go back</a>
+            </div>
+          </body>";
         }
       } else {
         echo "
