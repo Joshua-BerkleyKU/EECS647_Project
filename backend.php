@@ -292,7 +292,8 @@ switch ($page_to_load) {
       </body>";
       }
     } elseif ($season != "All") {
-      $query = "SELECT SeasonNum, SeasonID, Wins, Losses, Matches, Kills, Deaths, Headshots FROM Seasons, SeasonsPlayed WHERE SeasonsPlayed.SeasonNum='$season' AND SeasonsPlayed.UserID='$username' AND SeasonsPlayed.SeasonID=Seasons.SeasonID";
+      $season_id = strval($username) . strval($season);
+      $query = "SELECT SeasonNum, SeasonID, Wins, Losses, Matches, Kills, Deaths, Headshots FROM Seasons, SeasonsPlayed WHERE SeasonsPlayed.SeasonNum='$season_id' AND SeasonsPlayed.UserID='$username' AND SeasonsPlayed.SeasonID=Seasons.SeasonID";
       $result = mysqli_query($conn, $query);
       if ($result->num_rows > 0) {
         // output data of each row
