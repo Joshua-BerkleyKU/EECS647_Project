@@ -6,8 +6,7 @@
 .results {
     background-color: aliceblue;
     border-color: red;
-    border-style: dotted;
-    border-radius: 5%;
+    border-style: solid;
 }
 
 #viewDataPageBlock {
