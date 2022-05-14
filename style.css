@@ -3,6 +3,12 @@
     width: 20%;
 }
 
+.results {
+    background-color: aliceblue;
+    border-color: red;
+    border-radius: 2px;
+}
+
 #viewDataPageBlock {
     min-width: fit-content;
     min-height: fit-content;

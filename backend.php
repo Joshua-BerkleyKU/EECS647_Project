@@ -213,14 +213,20 @@ switch ($page_to_load) {
             <title>647 project | view user data</title><link rel='stylesheet' type='text/css' href='style.css' />
           </head>
           <body class='background'>
-            <div class='search'>"
+            <div class='results'>"
             . "User: " . $row["UserID"]
-            . "\nWins: " . $row["Wins"]
-            . "\nLosses: " . $row["Losses"]
-            . "\nMatches" . $row["Matches"]
-            . "\nKills: " . $row["Kills"]
-            . "\nDeaths: " . $row["Deaths"]
-            . "\nHeadshots: " . $row["Headshots"]
+            . "<br>"
+            . "Wins: " . $row["Wins"]
+            . "<br>"
+            . "Losses: " . $row["Losses"]
+            . "<br>"
+            . "Matches" . $row["Matches"]
+            . "<br>"
+            . "Kills: " . $row["Kills"]
+            . "<br>"
+            . "Deaths: " . $row["Deaths"]
+            . "<br>"
+            . "Headshots: " . $row["Headshots"]
             . "<br>"
             . "</div>
             <div id='viewDataPageBlock'>
