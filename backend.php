@@ -202,7 +202,10 @@ switch ($page_to_load) {
     }
 
     if ($season == "All" && $weapon == "All") {
-      $query = "SELECT * FROM Users WHERE UserID='$username'";
+      $query = 
+      "SELECT * 
+      FROM Users 
+      WHERE UserID='$username'";
       $result = mysqli_query($conn, $query);
       if ($result->num_rows > 0) {
         // output data of each row
@@ -248,7 +251,13 @@ switch ($page_to_load) {
         </body>";
       }
     } elseif ($weapon != "All") {
-      $query = "SELECT * FROM Weapons WHERE UserID='$username' AND WeaponName='$weapon'"; //UserID, WeaponName, Kills, Deaths, Headshots, HeadshotAccuracy
+      $query = 
+      "SELECT * 
+      FROM Weapons
+      INNER JOIN Users 
+      ON Users.UserID=Weapons.UserID 
+      AND Users.UserID='$username' 
+      AND Weapons.WeaponName='$weapon';";
       $result = mysqli_query($conn, $query);
       if ($result->num_rows > 0) {
         // output data of each row
@@ -293,7 +302,13 @@ switch ($page_to_load) {
       }
     } elseif ($season != "All") {
       $season_id = strval($username) . strval($season);
-      $query = "SELECT * FROM Seasons INNER JOIN SeasonsPlayed ON SeasonsPlayed.SeasonID=Seasons.SeasonID AND UserID='$username' AND Seasons.SeasonID='$season_id'";
+      $query = 
+      "SELECT * 
+      FROM Seasons 
+      INNER JOIN SeasonsPlayed 
+      ON SeasonsPlayed.SeasonID=Seasons.SeasonID 
+      AND UserID='$username' 
+      AND Seasons.SeasonID='$season_id'";
       $result = mysqli_query($conn, $query);
       if ($result->num_rows > 0) {
         // output data of each row
