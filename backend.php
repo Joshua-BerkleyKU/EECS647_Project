@@ -243,7 +243,7 @@ switch ($page_to_load) {
         <body class='background'>
           <div>Error: 0 results. Either this user has no data or the username was entered incorrectly.</div>
           <div id='viewDataPageBlock'>
-            <a href='647_project.html'>Go back</a>
+            <a href='viewData.html'>Go back</a>
           </div>
         </body>";
       }
@@ -253,13 +253,30 @@ switch ($page_to_load) {
       if ($result->num_rows > 0) {
         // output data of each row
         while ($row = $result->fetch_assoc()) { //UserID, Wins, Losses, Matches, Kills, Deaths, Headshots
-          echo "User: " . $row["UserID"]
-            . "\nWeapon: " . $row["WeaponName"]
-            . "\nKills: " . $row["Kills"]
-            . "\nDeaths: " . $row["Deaths"]
-            . "\nHeadshots: " . $row["Headshots"]
-            . "\nHeadshotAccuracy: " . $row["HeadshotAccuracy"]
-            . "<br>";
+          echo "
+          <head>
+            <meta charset='utf-8' />
+            <title>647 project | view user data</title><link rel='stylesheet' type='text/css' href='style.css' />
+          </head>
+          <body class='background'>
+            <div class='results'>"
+            . "User: " . $row["UserID"]
+            . "<br>"
+            . "Weapon: " . $row["WeaponName"]
+            . "<br>"
+            . "Kills: " . $row["Kills"]
+            . "<br>"
+            . "Deaths: " . $row["Deaths"]
+            . "<br>"
+            . "Headshots: " . $row["Headshots"]
+            . "<br>"
+            . "HeadshotAccuracy: " . $row["HeadshotAccuracy"]
+            . "<br>"
+            . "</div>
+            <div id='viewDataPageBlock'>
+              <a href='647_project.html'>Go back</a>
+            </div>
+          </body>";
         }
       } else {
         echo "
@@ -270,24 +287,42 @@ switch ($page_to_load) {
       <body class='background'>
         <div>Error: 0 results. Either this user has no data for this weapon or the username or weapon name was entered incorrectly.</div>
         <div id='viewDataPageBlock'>
-          <a href='647_project.html'>Go back</a>
+          <a href='viewData.html'>Go back</a>
         </div>
       </body>";
       }
     } elseif ($season != "All") {
-      $query = "SELECT SeasonID, Wins, Losses, Matches, Kills, Deaths, Headshots FROM Seasons, SeasonsPlayed WHERE SeasonsPlayed.SeasonNum='$season' AND SeasonsPlayed.UserID='$username' AND SeasonsPlayed.SeasonID=Seasons.SeasonID";
+      $query = "SELECT SeasonNum, SeasonID, Wins, Losses, Matches, Kills, Deaths, Headshots FROM Seasons, SeasonsPlayed WHERE SeasonsPlayed.SeasonNum='$season' AND SeasonsPlayed.UserID='$username' AND SeasonsPlayed.SeasonID=Seasons.SeasonID";
       $result = mysqli_query($conn, $query);
       if ($result->num_rows > 0) {
         // output data of each row
         while ($row = $result->fetch_assoc()) { //UserID, Wins, Losses, Matches, Kills, Deaths, Headshots
-          echo "Season: " . $row["SeasonID"]
-            . "\nWins: " . $row["Wins"]
-            . "\nLosses: " . $row["Losses"]
-            . "\nMatches" . $row["Matches"]
-            . "\nKills: " . $row["Kills"]
-            . "\nDeaths: " . $row["Deaths"]
-            . "\nHeadshots: " . $row["Headshots"]
-            . "<br>";
+          echo "
+          <head>
+            <meta charset='utf-8' />
+            <title>647 project | view user data</title><link rel='stylesheet' type='text/css' href='style.css' />
+          </head>
+          <body class='background'>
+            <div class='results'>"
+            . "Season: " . $row["SeasonNum"]
+            . "<br>"
+            . "Wins: " . $row["Wins"]
+            . "<br>"
+            . "Losses: " . $row["Losses"]
+            . "<br>"
+            . "Matches" . $row["Matches"]
+            . "<br>"
+            . "Kills: " . $row["Kills"]
+            . "<br>"
+            . "Deaths: " . $row["Deaths"]
+            . "<br>"
+            . "Headshots: " . $row["Headshots"]
+            . "<br>"
+            . "</div>
+            <div id='viewDataPageBlock'>
+              <a href='647_project.html'>Go back</a>
+            </div>
+          </body>";
         }
       } else {
         echo "
@@ -296,9 +331,9 @@ switch ($page_to_load) {
         <title>647 project | view user data</title><link rel='stylesheet' type='text/css' href='style.css' />
       </head>
       <body class='background'>
-        <div>Error: 0 results. Either this user has no data for this season or the username was entered incorrectly.</div>
+        <div class='results'>Error: 0 results. Either this user has no data for this season or the username was entered incorrectly.</div>
         <div id='viewDataPageBlock'>
-          <a href='647_project.html'>Go back</a>
+          <a href='viewData.html'>Go back</a>
         </div>
       </body>";
       }
