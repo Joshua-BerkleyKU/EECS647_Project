@@ -293,7 +293,7 @@ switch ($page_to_load) {
       }
     } elseif ($season != "All") {
       $season_id = strval($username) . strval($season);
-      $query = "SELECT SeasonNum, SeasonID, Wins, Losses, Matches, Kills, Deaths, Headshots FROM Seasons, SeasonsPlayed WHERE SeasonsPlayed.SeasonNum='$season_id' AND SeasonsPlayed.UserID='$username' AND SeasonsPlayed.SeasonID=Seasons.SeasonID";
+      $query = "SELECT * FROM Seasons INNER JOIN SeasonsPlayed ON SeasonsPlayed.SeasonID=Seasons.SeasonID AND UserID='$username' AND Seasons.SeasonID='$season_id'";
       $result = mysqli_query($conn, $query);
       if ($result->num_rows > 0) {
         // output data of each row
