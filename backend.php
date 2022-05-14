@@ -332,7 +332,8 @@ switch ($page_to_load) {
         <title>647 project | view user data</title><link rel='stylesheet' type='text/css' href='style.css' />
       </head>
       <body class='background'>
-        <div class='results'>Error: 0 results. Either this user has no data for this season or the username was entered incorrectly.</div>
+        <div class='results'>Error: 0 results. Either this user has no data for this season or the username was entered incorrectly.</div> "
+        . $season_id . "
         <div id='viewDataPageBlock'>
           <a href='viewData.html'>Go back</a>
         </div>
